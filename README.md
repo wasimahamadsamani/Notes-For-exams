@@ -8,4 +8,4 @@ A collection of study notes and resources.
 
 ## 📚 OOP Complete Final
 
-[View OOP Complete Final](https://wasimahamadsamani.github.io/Notes-For-exams/OOP_Complete_Final.html)
+[View OOP Complete Final](OOP_Complete_Final.html)
