@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OOP Complete Exam Preparation - All Answers with Images & Programs</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #333;
+      line-height: 1.65;
+      min-height: 100vh;
+      padding: 20px 0;
+    }
+
+    .page { max-width: 1400px; margin: 0 auto; padding: 0 16px; }
+
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 32px 24px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 2.2rem; margin-bottom: 8px; font-weight: 700; }
+    header p { font-size: 1rem; opacity: 0.95; }
+
+    .main-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .main-container { grid-template-columns: 1fr; }
+      nav { position: static !important; top: auto !important; }
+    }
+
+    nav {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 20px;
+      height: fit-content;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    nav h2 { font-size: 1.1rem; color: #667eea; margin-bottom: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+    nav .nav-group { margin-bottom: 18px; }
+    nav .nav-group-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #999; margin: 12px 0 6px; letter-spacing: 1px; }
+    nav ul { list-style: none; }
+    nav li { margin-bottom: 6px; }
+    nav a {
+      display: block;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: #333;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    nav a:hover { background: #f0f0ff; color: #667eea; transform: translateX(3px); }
+
+    main { display: flex; flex-direction: column; gap: 24px; }
+
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    section > h2 {
+      font-size: 1.8rem;
+      color: #667eea;
+      margin-bottom: 16px;
+      border-left: 4px solid #667eea;
+      padding-left: 12px;
+    }
+
+    .part-header {
+      background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin: 20px 0 16px;
+      border-left: 4px solid #667eea;
+    }
+
+    .part-header h3 { font-size: 1.1rem; color: #667eea; margin: 0; }
+
+    article {
+      background: #f9f9ff;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 1px solid #e8e8f5;
+      transition: all 0.2s ease;
+    }
+
+    article:hover { box-shadow: 0 6px 20px rgba(102, 126, 234, 0.1); }
+
+    article h3 {
+      font-size: 1.05rem;
+      color: #333;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .marks-badge {
+      display: inline-block;
+      background: #ff6b6b;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .question-label {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    article > p, article > ul, article > pre, article > figure {
+      margin-bottom: 8px;
+      font-size: 0.93rem;
+    }
+
+    article ul { margin-left: 18px; }
+    article li { margin-bottom: 4px; line-height: 1.5; }
+
+    pre {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 14px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      border: 1px solid #444;
+    }
+
+    code { font-family: 'Courier New', monospace; }
+
+    figure {
+      margin: 12px 0;
+      text-align: center;
+    }
+
+    figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: #f5f5f5;
+      padding: 8px;
+    }
+
+    figure figcaption {
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    .code-explanation {
+      background: #f0f0ff;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      color: #333;
+      margin: 8px 0;
+      border-left: 3px solid #667eea;
+    }
+
+    .tip-box {
+      background: #e7f5ff;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border-left: 4px solid #4dabf7;
+      font-size: 0.9rem;
+      margin: 10px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #667eea;
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) { background: #f9f9ff; }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+      font-size: 1.2rem;
+    }
+
+    .scroll-top.show { display: block; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>📚 OOP Complete Exam Preparation</h1>
+      <p>✅ Question Paper 1 (Parts A, B, C) | ✅ Quiz-5 | ✅ All Images & Programs | All Answers Included</p>
+    </header>
+
+    <div class="main-container">
+      <!-- NAVIGATION -->
+      <nav>
+        <h2>📑 Contents</h2>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Question Paper 1</div>
+          <ul>
+            <li><a href="#qp-part-a">Part A (5×2=10M)</a></li>
+            <li><a href="#qp-part-b">Part B (6×5=30M)</a></li>
+            <li><a href="#qp-part-c">Part C (6×10=60M)</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Quiz-5</div>
+          <ul>
+            <li><a href="#quiz-section">All Quiz-5 Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-group">
+          <div class="nav-group-title">Key Topics</div>
+          <ul>
+            <li><a href="#concepts">OOP Concepts</a></li>
+            <li><a href="#keywords">Java Keywords</a></li>
+            <li><a href="#inheritance">Inheritance</a></li>
+            <li><a href="#polymorphism">Polymorphism</a></li>
+            <li><a href="#exceptions">Exceptions</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- MAIN CONTENT -->
+      <main>
+        <!-- ===================== QUESTION PAPER PART A ===================== -->
+        <section id="qp-part-a">
+          <h2>📄 QUESTION PAPER PART A (5×2=10 Marks)</h2>
+          <p class="section-intro">Very short answers with diagrams and explanations.</p>
+
+          <div class="part-header">
+            <h3>Part A – All 5 Questions with Answers</h3>
+          </div>
+
+          <!-- Q1(a) -->
+          <article>
+            <h3>Q1(a) - Principles of Software Engineering <span class="marks-badge">2M</span></h3>
+            <span class="question-label">Answer</span>
+            <p><strong>5 Key Principles:</strong></p>
+            <ul>
+              <li><strong>Modularity:</strong> Break code into independent modules.</li>
+              <li><strong>Abstraction:</strong> Hide complex details, show simple interface.</li>
+              <li><strong>Encapsulation:</strong> Bundle data and methods, protect with access control.</li>
+              <li><strong>Separation of Concerns:</strong> Each module has ONE responsibility.</li>
+              <li><strong>DRY:</strong> Avoid duplicate code, reuse instead.</li>
+            </ul>
+          </article>
+
+          <!-- Q1(b) -->
+          <article>
+            <h3>Q1(b) - Data Hiding vs Encapsulation <span class="marks-badge">2M</span></h3>
+            <span class="question-label">Answer</span>
+            <ul>
+              <li><strong>Data Hiding:</strong> Making variables private – not accessible outside the class.</li>
+              <li><strong>Encapsulation:</strong> Bundling data + methods together + controlling access using getters/setters.</li>
+              <li><strong>Key Difference:</strong> Data hiding is the GOAL; encapsulation is the TOOL to achieve it.</li>
+            </ul>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/ccc419a5-c3da-4659-be28-1a59505e61a0.png" alt="Encapsulation" style="max-width: 400px;" />
+              <figcaption>Data hiding protects fields; encapsulation provides controlled access through methods.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q1(c) -->
+          <article>
+            <h3>Q1(c) - Types of Inheritance <span class="marks-badge">2M</span></h3>
+            <span class="question-label">Answer</span>
+            <ul>
+              <li><strong>Single:</strong> One child from one parent (A → B)</li>
+              <li><strong>Multilevel:</strong> Chain inheritance (A → B → C)</li>
+              <li><strong>Hierarchical:</strong> One parent, many children (A → B, C, D)</li>
+              <li><strong>Multiple:</strong> One child, many parents (NOT supported for classes, only interfaces)</li>
+              <li><strong>Hybrid:</strong> Mix of different types</li>
+            </ul>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/940b4e30-a745-45e7-973d-d2d93ee8c47c.png" alt="Inheritance types" style="max-width: 400px;" />
+              <figcaption>All inheritance types with hierarchy visualization.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q1(d) -->
+          <article>
+            <h3>Q1(d) - Polymorphism with Example <span class="marks-badge">2M</span></h3>
+            <span class="question-label">Answer</span>
+            <p>Polymorphism = "many forms" – same method name, different behavior.</p>
+            <pre><code>class Dog extends Animal {
+    @Override
+    void sound() { System.out.println("Dog barks"); }
+}
+class Cat extends Animal {
+    @Override
+    void sound() { System.out.println("Cat meows"); }
+}</code></pre>
+            <p>Same method `sound()` behaves differently for each animal (runtime polymorphism).</p>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/1ce421e1-c605-41c6-aed4-9283de5f22ca.png" alt="Polymorphism" style="max-width: 400px;" />
+              <figcaption>Compile-time polymorphism (overloading) vs Runtime polymorphism (overriding).</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q1(e) -->
+          <article>
+            <h3>Q1(e) - Exceptions in Java <span class="marks-badge">2M</span></h3>
+            <span class="question-label">Answer</span>
+            <p>An exception is an error during program execution. Java provides try-catch-finally to handle gracefully.</p>
+            <ul>
+              <li>Examples: `NullPointerException`, `IOException`, `ArithmeticException`</li>
+              <li>Using exception handling, program doesn't crash suddenly.</li>
+              <li>Can throw, catch, and handle exceptions to recover from errors.</li>
+            </ul>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/fa8ff885-736d-4718-896c-6b4486a7a506.png" alt="Exception hierarchy" style="max-width: 400px;" />
+              <figcaption>Java exception hierarchy: Error and Exception classes.</figcaption>
+            </figure>
+          </article>
+        </section>
+
+        <!-- ===================== QUESTION PAPER PART B ===================== -->
+        <section id="qp-part-b">
+          <h2>📄 QUESTION PAPER PART B (6×5=30 Marks)</h2>
+          <p class="section-intro">Short answers with detailed explanations and code examples.</p>
+
+          <div class="part-header">
+            <h3>Part B – All 6 Questions with Answers</h3>
+          </div>
+
+          <!-- Q2(a) -->
+          <article>
+            <h3>Q2(a) - Class vs Object <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Full Answer</span>
+            <p><strong>Class:</strong> Blueprint/template defining properties and methods. Logical definition, not real data.</p>
+            <p><strong>Object:</strong> Real instance created in memory using `new` keyword. Has actual values for fields.</p>
+            <pre><code>class Car {           // Class (blueprint)
+    String model;
+    void start() { }
+}
+
+Car car1 = new Car(); // car1 is an object
+car1.model = "Honda"; // This object has actual data</code></pre>
+            <div class="code-explanation">The class `Car` is the blueprint. `car1` is the actual object in memory with specific values.</div>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/46de19e6-e4a0-4bc3-9414-3073ca79b2f2.png" alt="Class vs Object" style="max-width: 400px;" />
+              <figcaption>Class is abstract; Objects are concrete instances.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q2(b) -->
+          <article>
+            <h3>Q2(b) - Static Keyword <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Full Answer</span>
+            <p>Static members belong to the CLASS, not to individual objects. One copy shared by all.</p>
+            <pre><code>class Counter {
+    static int count = 0;  // Shared by all objects
+
+    Counter() { count++; }
+
+    static void show() {   // Can be called without object
+        System.out.println("Count: " + count);
+    }
+}
+
+Counter c1 = new Counter(); // count = 1
+Counter c2 = new Counter(); // count = 2
+Counter.show();              // Output: Count: 2</code></pre>
+            <div class="code-explanation">Static `count` is shared. All objects increment the same variable. Static method `show()` called via class name.</div>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/601b290e-0316-4639-93ca-f8a8a3605bf8.png" alt="Static members" style="max-width: 400px;" />
+              <figcaption>Static variables shared; instance variables one per object.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q3(a) -->
+          <article>
+            <h3>Q3(a) - Access Modifiers <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Full Answer</span>
+            <table>
+              <tr>
+                <th>Modifier</th>
+                <th>Accessible From</th>
+                <th>Use</th>
+              </tr>
+              <tr>
+                <td><code>public</code></td>
+                <td>Anywhere</td>
+                <td>External APIs</td>
+              </tr>
+              <tr>
+                <td><code>protected</code></td>
+                <td>Same package + subclasses</td>
+                <td>Inheritance</td>
+              </tr>
+              <tr>
+                <td><code>private</code></td>
+                <td>Same class only</td>
+                <td>Hide implementation</td>
+              </tr>
+              <tr>
+                <td><code>default</code></td>
+                <td>Same package</td>
+                <td>Package level</td>
+              </tr>
+            </table>
+          </article>
+
+          <!-- Q3(b) -->
+          <article>
+            <h3>Q3(b) - POJO Class <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Full Answer</span>
+            <p>POJO = Plain Old Java Object. Simple class with private fields and public getters/setters.</p>
+            <pre><code>public class Student {
+    private String name;
+    private int age;
+
+    public Student() { }
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+}</code></pre>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/5b63429b-885f-4e2a-9241-5367753d9714.png" alt="POJO" style="max-width: 400px;" />
+              <figcaption>POJO structure: encapsulation with private fields and public getters/setters.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q4(a) -->
+          <article>
+            <h3>Q4(a) - Polymorphism and Types <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Full Answer</span>
+            <p><strong>Type 1 - Compile-Time (Method Overloading):</strong> Same name, different parameters.</p>
+            <pre><code>class Math {
+    public int add(int a, int b) { return a + b; }
+    public double add(double a, double b) { return a + b; }
+}</code></pre>
+            <p><strong>Type 2 - Runtime (Method Overriding):</strong> Same name in parent and child, different implementations.</p>
+            <pre><code>class Animal { void sound() { } }
+class Dog extends Animal {
+    @Override void sound() { System.out.println("Bark"); }
+}</code></pre>
+          </article>
+
+          <!-- Q5(a) -->
+          <article>
+            <h3>Q5(a) - Exception vs Error <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Full Answer</span>
+            <table>
+              <tr>
+                <th>Aspect</th>
+                <th>Exception</th>
+                <th>Error</th>
+              </tr>
+              <tr>
+                <td>Cause</td>
+                <td>Application code error</td>
+                <td>JVM/System error</td>
+              </tr>
+              <tr>
+                <td>Handling</td>
+                <td>Can be caught</td>
+                <td>Should NOT be caught</td>
+              </tr>
+              <tr>
+                <td>Recovery</td>
+                <td>Possible</td>
+                <td>Usually impossible</td>
+              </tr>
+              <tr>
+                <td>Examples</td>
+                <td>IOException, NPE</td>
+                <td>OutOfMemoryError</td>
+              </tr>
+            </table>
+          </article>
+
+          <!-- Q5(b) -->
+          <article>
+            <h3>Q5(b) - throw vs throws <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Full Answer</span>
+            <p><strong>throw:</strong> Inside method body to explicitly throw exception.</p>
+            <pre><code>void validate(int age) {
+    if (age < 18) throw new IllegalArgumentException("Age < 18");
+}</code></pre>
+            <p><strong>throws:</strong> In method signature to declare method might throw exception.</p>
+            <pre><code>void readFile() throws IOException {
+    FileReader fr = new FileReader("data.txt");
+}</code></pre>
+          </article>
+
+          <!-- Q6(a) -->
+          <article>
+            <h3>Q6(a) - Checked and Unchecked Exceptions <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Program</span>
+            <p><strong>Checked Exception (IOException):</strong> Must be caught or declared.</p>
+            <pre><code>try {
+    FileReader fr = new FileReader("file.txt");
+} catch (IOException e) {
+    System.out.println("File error: " + e);
+}</code></pre>
+            <p><strong>Unchecked Exception (ArithmeticException):</strong> Not checked by compiler.</p>
+            <pre><code>try {
+    int result = 10 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Error: " + e);
+}</code></pre>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/fa8ff885-736d-4718-896c-6b4486a7a506.png" alt="Exception hierarchy" style="max-width: 400px;" />
+              <figcaption>Checked exceptions must be handled; unchecked exceptions optional.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q6(b) -->
+          <article>
+            <h3>Q6(b) - User-Defined Exception <span class="marks-badge">5M</span></h3>
+            <span class="question-label">Program</span>
+            <pre><code>class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+}
+
+void checkAge(int age) throws InvalidAgeException {
+    if (age < 18) {
+        throw new InvalidAgeException("Age must be 18+");
+    }
+}
+
+try {
+    checkAge(15);
+} catch (InvalidAgeException e) {
+    System.out.println("Error: " + e.getMessage());
+}</code></pre>
+          </article>
+        </section>
+
+        <!-- ===================== QUESTION PAPER PART C ===================== -->
+        <section id="qp-part-c">
+          <h2>📄 QUESTION PAPER PART C (6×10=60 Marks)</h2>
+          <p class="section-intro">Full programs with detailed explanations and output.</p>
+
+          <div class="part-header">
+            <h3>Part C – All 6 Questions with Complete Programs</h3>
+          </div>
+
+          <!-- Q7(a) -->
+          <article>
+            <h3>Q7(a) - Compute x^y (Power) <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>public class PowerCalculator {
+    public static int power(int x, int y) {
+        int result = 1;
+        for (int i = 0; i < y; i++) {
+            result = result * x;
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int x = Integer.parseInt(args[0]);
+        int y = Integer.parseInt(args[1]);
+        System.out.println(x + "^" + y + " = " + power(x, y));
+    }
+}
+
+// Run: java PowerCalculator 2 5
+// Output: 2^5 = 32</code></pre>
+            <div class="code-explanation">Loop multiplies x exactly y times. Example: 2^5 = 1 × 2 × 2 × 2 × 2 × 2 = 32</div>
+          </article>
+
+          <!-- Q7(b) -->
+          <article>
+            <h3>Q7(b) - Shape Abstract Class <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>abstract class Shape {
+    abstract double area();
+}
+
+class Rectangle extends Shape {
+    double length, breadth;
+    Rectangle(double l, double b) { this.length = l; this.breadth = b; }
+    @Override double area() { return length * breadth; }
+}
+
+class Circle extends Shape {
+    double radius;
+    Circle(double r) { this.radius = r; }
+    @Override double area() { return 3.14 * radius * radius; }
+}
+
+class Triangle extends Shape {
+    double base, height;
+    Triangle(double b, double h) { this.base = b; this.height = h; }
+    @Override double area() { return 0.5 * base * height; }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Rectangle: " + new Rectangle(5, 10).area());    // 50
+        System.out.println("Circle: " + new Circle(7).area());              // 153.86
+        System.out.println("Triangle: " + new Triangle(4, 6).area());       // 12
+    }
+}</code></pre>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/abstraction_concept.png" alt="Abstraction" style="max-width: 400px;" />
+              <figcaption>Abstract class enforces implementation in each subclass.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q8(a) -->
+          <article>
+            <h3>Q8(a) - Static Variables and Methods <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>public class Employee {
+    private int empId;
+    private String name;
+    private static int totalEmployees = 0;
+
+    public Employee(String name) {
+        totalEmployees++;
+        this.empId = totalEmployees;
+        this.name = name;
+    }
+
+    public void display() {
+        System.out.println("ID: " + empId + ", Name: " + name);
+    }
+
+    public static void displayTotal() {
+        System.out.println("Total: " + totalEmployees);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Employee e1 = new Employee("Ravi");
+        Employee e2 = new Employee("Priya");
+
+        e1.display();  // ID: 1, Name: Ravi
+        e2.display();  // ID: 2, Name: Priya
+        Employee.displayTotal();  // Total: 2
+    }
+}</code></pre>
+            <div class="code-explanation">Static `totalEmployees` is shared by all objects. Each new object increments it.</div>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/object_lifecycle.png" alt="Object lifecycle" style="max-width: 400px;" />
+              <figcaption>Objects are created, use shared static members, and destroyed by garbage collector.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q8(b) -->
+          <article>
+            <h3>Q8(b) - Temperature Converter <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>public class TempConverter {
+    public double celsiusToFahrenheit(double c) {
+        return (c * 9.0 / 5.0) + 32;
+    }
+
+    public double fahrenheitToCelsius(double f) {
+        return (f - 32) * 5.0 / 9.0;
+    }
+
+    public void display(double temp, String unit) {
+        if (unit.equalsIgnoreCase("C")) {
+            System.out.println(temp + "°C = " + celsiusToFahrenheit(temp) + "°F");
+        } else {
+            System.out.println(temp + "°F = " + fahrenheitToCelsius(temp) + "°C");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        TempConverter tc = new TempConverter();
+        tc.display(0, "C");     // 0°C = 32.0°F
+        tc.display(25, "C");    // 25°C = 77.0°F
+        tc.display(212, "F");   // 212°F = 100.0°C
+    }
+}</code></pre>
+          </article>
+
+          <!-- Q9(a) -->
+          <article>
+            <h3>Q9(a) - Exception Handling – Negative Values <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>public class NegativeValueException extends Exception {
+    public NegativeValueException(String message) {
+        super(message);
+    }
+}
+
+public class Validator {
+    public static void validate(String[] args) throws NegativeValueException {
+        for (int i = 0; i < args.length; i++) {
+            try {
+                int num = Integer.parseInt(args[i]);
+                if (num < 0) {
+                    throw new NegativeValueException("Arg " + i + " is negative: " + num);
+                }
+                System.out.println("Arg " + i + ": " + num + " (Valid)");
+            } catch (NumberFormatException e) {
+                System.out.println("Arg " + i + " is not a number");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            validate(args);
+            System.out.println("All valid!");
+        } catch (NegativeValueException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
+// Usage: java Validator 5 10 -3
+// Output: Arg 0: 5 (Valid)
+//         Arg 1: 10 (Valid)
+//         Error: Arg 2 is negative: -3</code></pre>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/b7cd4589-eda5-45fa-a876-fa308d5576e8.png" alt="Exception flow" style="max-width: 400px;" />
+              <figcaption>Exception handling flow in action.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q9(b) -->
+          <article>
+            <h3>Q9(b) - Multilevel Inheritance <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>class Level1 {
+    void method1() { System.out.println("Level 1"); }
+}
+
+class Level2 extends Level1 {
+    void method2() { System.out.println("Level 2"); }
+}
+
+class Level3 extends Level2 {
+    void method3() { System.out.println("Level 3"); }
+}
+
+class Level4 extends Level3 {
+    void method4() { System.out.println("Level 4"); }
+    void executeAll() {
+        method1();
+        method2();
+        method3();
+        method4();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Level4 obj = new Level4();
+        obj.executeAll();
+        // Output: Level 1, Level 2, Level 3, Level 4
+    }
+}</code></pre>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/multilevel_inheritance.png" alt="Multilevel inheritance" style="max-width: 400px;" />
+              <figcaption>4-level inheritance chain: Level4 inherits from Level3, Level2, Level1.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q10(a) -->
+          <article>
+            <h3>Q10(a) - LivingThings Polymorphism <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>abstract class LivingThing {
+    protected String name;
+    LivingThing(String name) { this.name = name; }
+    abstract void live();
+    void show() { System.out.println("Name: " + name); }
+}
+
+class Animal extends LivingThing {
+    Animal(String name) { super(name); }
+    @Override void live() { System.out.println("Animals eat food"); }
+}
+
+class HumanBeing extends LivingThing {
+    HumanBeing(String name) { super(name); }
+    @Override void live() { System.out.println("Humans work and socialize"); }
+}
+
+class Plant extends LivingThing {
+    Plant(String name) { super(name); }
+    @Override void live() { System.out.println("Plants do photosynthesis"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        LivingThing[] creatures = {
+            new Animal("Tiger"), new HumanBeing("Ravi"), new Plant("Rose")
+        };
+        for (LivingThing c : creatures) {
+            c.show();
+            c.live();  // Polymorphic call
+        }
+    }
+}</code></pre>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/livingthings_polymorphism.png" alt="Polymorphism example" style="max-width: 400px;" />
+              <figcaption>Runtime polymorphism: same method call, different behaviors.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q10(b) -->
+          <article>
+            <h3>Q10(b) - Method Overriding <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>class Vehicle {
+    public void drive() { System.out.println("Vehicle driving..."); }
+}
+
+class Car extends Vehicle {
+    @Override public void drive() { System.out.println("Car driving fast"); }
+}
+
+class Bicycle extends Vehicle {
+    @Override public void drive() { System.out.println("Bicycle pedaling slow"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vehicle v1 = new Car();
+        Vehicle v2 = new Bicycle();
+
+        v1.drive();   // Car driving fast
+        v2.drive();   // Bicycle pedaling slow
+        // Same method, different behavior based on actual object type
+    }
+}</code></pre>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/method_overriding.png" alt="Method overriding" style="max-width: 400px;" />
+              <figcaption>Method overriding: child replaces parent method with own implementation.</figcaption>
+            </figure>
+          </article>
+
+          <!-- Q11(a) -->
+          <article>
+            <h3>Q11(a) - Password Validation <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>import java.util.Scanner;
+
+class AuthenticationFailureException extends Exception {
+    public AuthenticationFailureException(String message) {
+        super(message);
+    }
+}
+
+class PasswordValidator {
+    private static final String CORRECT_PASSWORD = "SecurePass123";
+    private static final int MAX_ATTEMPTS = 3;
+
+    public void validate(String password) throws AuthenticationFailureException {
+        if (password == null || password.isEmpty()) {
+            throw new AuthenticationFailureException("Password cannot be empty");
+        }
+        if (!password.equals(CORRECT_PASSWORD)) {
+            throw new AuthenticationFailureException("Invalid password");
+        }
+    }
+
+    public void loginWithAttempts() {
+        Scanner sc = new Scanner(System.in);
+        for (int i = 1; i <= MAX_ATTEMPTS; i++) {
+            try {
+                System.out.print("Enter password (Attempt " + i + "/" + MAX_ATTEMPTS + "): ");
+                validate(sc.nextLine());
+                System.out.println("Login successful!");
+                return;
+            } catch (AuthenticationFailureException e) {
+                System.out.println("Error: " + e.getMessage());
+                if (i == MAX_ATTEMPTS) System.out.println("Account locked!");
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new PasswordValidator().loginWithAttempts();
+    }
+}</code></pre>
+          </article>
+
+          <!-- Q11(b) -->
+          <article>
+            <h3>Q11(b) - finally Block Demonstration <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>public class FinallyDemo {
+    static void caseNoException() {
+        System.out.println("=== Case 1: No Exception ===");
+        try {
+            System.out.println("Try block");
+            int x = 10 / 2;
+        } catch (ArithmeticException e) {
+            System.out.println("Catch block");
+        } finally {
+            System.out.println("Finally block (ALWAYS EXECUTES)\n");
+        }
+    }
+
+    static void caseException() {
+        System.out.println("=== Case 2: Exception Occurs ===");
+        try {
+            System.out.println("Try block");
+            int x = 10 / 0;  // Exception
+        } catch (ArithmeticException e) {
+            System.out.println("Catch block: " + e);
+        } finally {
+            System.out.println("Finally block (ALWAYS EXECUTES)\n");
+        }
+    }
+
+    public static void main(String[] args) {
+        caseNoException();
+        caseException();
+        System.out.println("Program completed");
+    }
+}
+
+/* Output:
+=== Case 1: No Exception ===
+Try block
+Finally block (ALWAYS EXECUTES)
+
+=== Case 2: Exception Occurs ===
+Try block
+Catch block: / by zero
+Finally block (ALWAYS EXECUTES)
+
+Program completed
+*/</code></pre>
+          </article>
+
+          <!-- Q12(a) -->
+          <article>
+            <h3>Q12(a) - Author and Publication Polymorphism <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>class Author {
+    protected String name;
+    public Author(String name) { this.name = name; }
+    void display() { System.out.println("Author: " + name); }
+}
+
+class BookPublication extends Author {
+    String bookTitle;
+    int year;
+    public BookPublication(String name, String title, int y) {
+        super(name);
+        bookTitle = title;
+        year = y;
+    }
+    void publish() {
+        display();
+        System.out.println("Book: " + bookTitle + " (" + year + ")");
+    }
+}
+
+class PaperPublication extends Author {
+    String paperTitle;
+    String journal;
+    public PaperPublication(String name, String title, String j) {
+        super(name);
+        paperTitle = title;
+        journal = j;
+    }
+    void publish() {
+        display();
+        System.out.println("Paper: " + paperTitle + " in " + journal);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Author[] pubs = {
+            new BookPublication("Haruki", "Norwegian Wood", 1987),
+            new PaperPublication("Einstein", "Relativity", "Annalen")
+        };
+
+        for (int i = 0; i < pubs.length; i++) {
+            if (pubs[i] instanceof BookPublication)
+                ((BookPublication) pubs[i]).publish();
+            else if (pubs[i] instanceof PaperPublication)
+                ((PaperPublication) pubs[i]).publish();
+        }
+    }
+}</code></pre>
+          </article>
+
+          <!-- Q12(b) -->
+          <article>
+            <h3>Q12(b) - Vegetable Abstract Hierarchy <span class="marks-badge">10M</span></h3>
+            <span class="question-label">Complete Program</span>
+            <pre><code>abstract class Vegetable {
+    protected String name;
+    public Vegetable(String name) { this.name = name; }
+    abstract void display();
+    public String toString() { return "Vegetable: " + name; }
+}
+
+class Potato extends Vegetable {
+    public Potato(String name) { super(name); }
+    @Override void display() { System.out.println("Root vegetable"); }
+}
+
+class Brinjal extends Vegetable {
+    public Brinjal(String name) { super(name); }
+    @Override void display() { System.out.println("Purple vegetable"); }
+}
+
+class Tomato extends Vegetable {
+    public Tomato(String name) { super(name); }
+    @Override void display() { System.out.println("Red fruit vegetable"); }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Vegetable[] veg = {
+            new Potato("Aloo"), new Brinjal("Baingan"), new Tomato("Tamatar")
+        };
+        for (Vegetable v : veg) {
+            System.out.println(v.toString());
+            v.display();
+        }
+    }
+}</code></pre>
+          </article>
+        </section>
+
+        <!-- ===================== QUIZ-5 SECTION ===================== -->
+        <section id="quiz-section">
+          <h2>🧪 QUIZ-5 – All Questions and Answers</h2>
+          <p class="section-intro">Comprehensive answers to Quiz-5 in detail.</p>
+
+          <article>
+            <h3>Q1 - Principles of Software Engineering <span class="marks-badge">5M</span></h3>
+            <p><strong>Answer:</strong> Modularity, Abstraction, Encapsulation, Separation of Concerns, DRY, KISS</p>
+          </article>
+
+          <article>
+            <h3>Q2 - DRY and SOLID Principles <span class="marks-badge">5M</span></h3>
+            <p><strong>DRY:</strong> Don't write duplicate code. <strong>SOLID:</strong> 5 principles (Single Responsibility, Open/Closed, Liskov, Interface Segregation, Dependency Inversion)</p>
+          </article>
+
+          <article>
+            <h3>Q3 - Define Class <span class="marks-badge">5M</span></h3>
+            <p><strong>Answer:</strong> Blueprint/template defining properties and methods for objects.</p>
+          </article>
+
+          <article>
+            <h3>Q4 - Define Object <span class="marks-badge">5M</span></h3>
+            <p><strong>Answer:</strong> Real instance of a class created in memory with actual values.</p>
+          </article>
+
+          <article>
+            <h3>Q5 - OOP Principles <span class="marks-badge">10M</span></h3>
+            <p><strong>4 Pillars:</strong> Encapsulation (hide data), Inheritance (code reuse), Polymorphism (many forms), Abstraction (hide complexity)</p>
+          </article>
+
+          <article>
+            <h3>Q6 - Code Reusability <span class="marks-badge">5M</span></h3>
+            <p><strong>Answer:</strong> Inheritance, Interfaces, Composition, Java Libraries</p>
+          </article>
+
+          <article>
+            <h3>Q7 - SELC Phases <span class="marks-badge">10M</span></h3>
+            <p><strong>6 Phases:</strong> Requirements, Design, Implementation, Testing, Deployment, Maintenance</p>
+          </article>
+
+          <article>
+            <h3>Q8 - Java Features <span class="marks-badge">5M</span></h3>
+            <p><strong>Answer:</strong> Platform Independence, OOP, Garbage Collection, Robust, Secure, Multi-threading, Portable, Distributed</p>
+          </article>
+
+          <article>
+            <h3>Q9 - Data Abstraction <span class="marks-badge">10M</span></h3>
+            <p><strong>Answer:</strong> Hiding implementation details. Show only necessary interface using abstract classes/interfaces.</p>
+          </article>
+
+          <article>
+            <h3>Q10 - Data Encapsulation <span class="marks-badge">10M</span></h3>
+            <p><strong>Answer:</strong> Wrapping data and methods together in class. Controlling access through private/public. Protects data, allows validation.</p>
+          </article>
+        </section>
+
+        <!-- ===================== KEY CONCEPTS SECTION ===================== -->
+        <section id="concepts">
+          <h2>🎯 Key OOP Concepts</h2>
+
+          <article>
+            <h3>IS-A vs HAS-A Relationship</h3>
+            <p><strong>IS-A (Inheritance):</strong> Dog IS-A Animal (extends keyword)</p>
+            <p><strong>HAS-A (Composition):</strong> Car HAS-A Engine (instance variable)</p>
+            <figure>
+              <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/isa_hasa_relationship.png" alt="IS-A vs HAS-A" style="max-width: 400px;" />
+              <figcaption>IS-A uses inheritance; HAS-A uses composition.</figcaption>
+            </figure>
+          </article>
+
+          <article>
+            <h3>Constructor Concept</h3>
+            <p>Special method called when object is created. Initializes object with initial values.</p>
+            <ul>
+              <li>Same name as class</li>
+              <li>No return type</li>
+              <li>Called automatically with `new` keyword</li>
+              <li>Can be overloaded</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>this vs super Keywords</h3>
+            <p><strong>this:</strong> Refers to current object. Access current class fields/methods.</p>
+            <p><strong>super:</strong> Refers to parent class. Access parent fields/methods.</p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <button class="scroll-top" onclick="scrollToTop()">↑</button>
+
+  <footer>
+    <p>✅ Complete OOP Exam Preparation | All Questions | All Diagrams | All Programs</p>
+    <p style="margin-top: 8px;">All answers organized, all images included, ready for exam! 🚀</p>
+  </footer>
+
+  <script>
+    window.onscroll = function() {
+      let btn = document.querySelector('.scroll-top');
+      if (window.pageYOffset > 300) {
+        btn.classList.add('show');
+      } else {
+        btn.classList.remove('show');
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        let target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
